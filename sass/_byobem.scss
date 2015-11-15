@@ -1,0 +1,40 @@
+////
+/// BYOBEM: Customizable mixins for BEM syntax.
+/// @author Wade Burelbach
+////
+
+@import 'variables';
+
+/// Block mixin
+/// @param {string} $block - Name of the block.
+@mixin block($block) {
+  .#{map-get($byobem-block, 'prefix') + $block)} {
+      @content;
+  }
+};
+
+/// Element mixin
+/// @param {string} $element - Name of the element.
+@mixin element($element) {
+  @if & {
+    &#{map-get($byobem-element, 'prefix') + $element} {
+      @content;
+    }
+  }
+  @else {
+    @warn 'Elements should have an associated block. Currently, only nesting is supported.';
+  }
+}
+
+/// Modifier mixin
+/// @param {string} $modifier - Name of the modifier.
+@mixin modifier($modifier) {
+  @if & {
+    &#{map-get($byobem-modifier, 'prefix') + $modifier} {
+      @content;
+    }
+  }
+  @else {
+    @warn 'Modifiers should have an associated block. Currently, only nesting is supported.';
+  }
+}
