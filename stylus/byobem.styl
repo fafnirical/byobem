@@ -1,0 +1,30 @@
+////
+/// BYOBEM: Customizable mixins for BEM syntax.
+/// @author Wade Burelbach
+////
+
+@require '_variables'
+
+/// Block mixin
+/// @param {string} $block - Name of the block.
+block($block)
+  .{$byobem-block['prefix'] + $block}
+    {block}
+
+/// Element mixin
+/// @param {string} $element - Name of the element.
+element($element)
+  unless mixin == 'root'
+    &{$byobem-element['prefix'] + $element}
+      {block}
+  if mixin == 'root'
+    warn('Elements should have an associated block. Currently, only nesting is supported.\nDropping unnested element: ' + $byobem-element['prefix'] + $element)
+
+/// Modifier mixin
+/// @param {string} $modifier - Name of the modifier.
+modifier($modifier)
+  unless mixin == 'root'
+    &{$byobem-modifier['prefix'] + $modifier}
+      {block}
+  if mixin == 'root'
+    warn('Modifiers should have an associated block. Currently, only nesting is supported.\nDropping unnested modifier: ' + $byobem-modifier['prefix'] + $modifier)
