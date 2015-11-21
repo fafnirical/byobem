@@ -1,0 +1,42 @@
+////
+/// BYOBEM: Customizable mixins for BEM syntax.
+/// @author Wade Burelbach
+////
+
+@import '_variables';
+
+/// Block mixin
+/// @param {string} @block - Name of the block.
+/// @param {*} @content - CSS rules for the block. Nested mixins can be used.
+.block(@block, @content) {
+  @block-prefix: e(extract(@byobem-block, 2));
+  @block-name: e(@block);
+
+  .@{block-prefix}@{block-name} {
+    @content();
+  }
+};
+
+/// Element mixin
+/// @param {string} $element - Name of the element.
+/// @param {*} @content - CSS rules for the element. Nested mixins can be used.
+.element(@element, @content) when not (5 = '') {
+  @element-prefix: e(extract(@byobem-element, 2));
+  @element-name: e(@element);
+
+  &@{element-prefix}@{element-name} {
+    @content();
+  }
+}
+
+/// Modifier mixin
+/// @param {string} $modifier - Name of the modifier.
+/// @param {*} @content - CSS rules for the element. Nested mixins can be used.
+.modifier(@modifier, @content) {
+  @modifier-prefix: e(extract(@byobem-modifier, 2));
+  @modifier-name: e(@modifier);
+
+  &@{modifier-prefix}@{modifier-name} {
+    @content();
+  }
+}
