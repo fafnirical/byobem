@@ -1,7 +1,7 @@
 {
   "name": "byobem",
   "description": "Bring your own BEM (BYOBEM) provides customizable mixins for BEM syntax, for use in Sass, Stylus, and Less projects.",
-  "license": "GPL-3.0",
+  "license": "MPL-2.0",
   "ignore": [
     "**/.*",
     "node_modules",

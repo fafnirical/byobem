@@ -1,6 +1,6 @@
 {
   "name": "byobem",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Bring your own BEM (BYOBEM) provides customizable mixins for BEM syntax, for use in Sass, Stylus, and Less projects.",
   "keywords": [
     "sass",
@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/Fafnirical/byobem/issues"
   },
-  "license": "GPL-3.0",
+  "license": "MPL-2.0",
   "author": {
     "name": "Wade Burelbach",
     "url": "https://github.com/Fafnirical"
